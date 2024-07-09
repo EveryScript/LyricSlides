@@ -1,0 +1,459 @@
+@import url('https://fonts.googleapis.com/css2?family=Assistant&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('../../node_modules/reveal.js/dist/theme/fonts/league-gothic/league-gothic.ttf');
+
+@font-face {
+    font-family: 'League Gothic';
+    src: url('../../node_modules/reveal.js/dist/theme/fonts/league-gothic/league-gothic.ttf') format('truetype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Color palette - https://colorhunt.co/palette/ff204ea0153e5d0e4100224d */
+:root {
+    --pr-pink: #FF204E;
+    --pr-red: #A0153E;
+    --pr-purple: #5D0E41;
+    --pr-blue: #00224D;
+    --pr-dark: #1d1d1d;
+    --pr-dark-gray: #454545;
+    --pr-light-gray: #b9b9b9;
+    --pr-white: #f5f5f5;
+    --pr-black: #111111;
+
+    --pr-font-family: "Rubik", sans-serif;
+    --pr-font-family-slide: "League Gothic"
+}
+
+body {
+    color-scheme: light;
+    /* Main font setup */
+    font-family: var(--pr-font-family);
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Scroll bar global */
+*::-webkit-scrollbar {
+    width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--pr-light-gray);
+    border-radius: 20px;
+}
+
+main {
+    background-color: var(--pr-light);
+    box-sizing: border-box;
+}
+
+.container {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 22rem 1fr;
+    grid-template-rows: 4rem 1fr;
+    height: 100vh;
+    color-scheme: light
+}
+
+header {
+    grid-column: 1/3;
+    grid-row: 1;
+    background-color: var(--pr-red);
+    color: white;
+    padding: 0 3rem;
+}
+
+header>nav {
+    height: 4rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav .logo img {
+    width: 3rem;
+    padding-top: .25rem;
+}
+
+header .logo {
+    font-weight: lighter;
+    font-size: 1.25rem;
+}
+
+header ul,
+.tab-container ul {
+    list-style: none;
+}
+
+header .nav-list {
+    /* width: 15rem; */
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    gap: .5rem;
+    font-weight: lighter;
+    font-size: .9rem;
+}
+
+header .nav-list li {
+    min-width: 1rem;
+    text-align: center;
+    padding: .5rem .7rem;
+    border-radius: .5rem;
+    transition: all .25s ease-in-out;
+    cursor: pointer;
+}
+
+header .nav-list li:hover {
+    background-color: #730f2c;
+    /* box-shadow: .1rem .1rem .5rem var(--pr-dark); */
+}
+
+/* Tab form container */
+.tab-container .tab-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    gap: .2rem;
+    margin-left: .5rem;
+}
+
+.tab-container .tab-element {
+    border: 1px solid var(--pr-red);
+    border-bottom: transparent;
+    border-radius: .2rem .2rem 0 0;
+    color: var(--pr-red);
+    padding: .5rem 1rem;
+    font-weight: lighter;
+    font-size: .7rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.tab-container .tab-active {
+    color: white;
+    background-color: var(--pr-red);
+}
+
+/* Form area */
+.content-form-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    overflow: auto;
+}
+
+.content-form-area .lyrics-area {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.content-form-area .lyrics-area .lyrics-counter-char {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    font-size: .75rem;
+    font-weight: lighter;
+    z-index: 10;
+    color: var(--pr-pink);
+    user-select: none;
+}
+
+.content-form-area textarea {
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    background-color: var(--pr-white);
+    color: var(--pr-black);
+    border: 2px solid var(--pr-light-gray);
+    outline: none;
+    border-radius: .2rem;
+    resize: none;
+    font-family: var(--pr-font-family);
+    font-size: .9rem;
+    font-weight: normal;
+    box-sizing: border-box;
+}
+
+.content-form-area .backgrounds-area {
+    width: 100%;
+    height: 100%;
+    display: none;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    align-content: start;
+    gap: .5rem;
+    padding: 1rem;
+    border: 2px solid var(--pr-light-gray);
+    border-radius: .2rem;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+.backgrounds-area .color-picker {
+    grid-column: 1/3;
+}
+
+.backgrounds-area .color-picker input[type="text"] {
+    padding: 2rem;
+    opacity: 0;
+}
+
+.backgrounds-area .color-picker button {
+    border-radius: .2rem;
+    width: 100%;
+}
+
+.background-radio {
+    position: relative;
+}
+
+.background-radio img {
+    width: 100%;
+}
+
+.background-radio label {
+    display: inline-flex;
+    border: 3px solid var(--pr-light-gray);
+    border-radius: .2rem;
+}
+
+.background-radio>input[type="radio"] {
+    display: none;
+}
+
+.background-radio>input[type="radio"]:checked+label {
+    border: 3px solid var(--pr-pink);
+}
+
+.background-radio .animated-icon {
+    position: absolute;
+    color: #bcbcbc;
+    right: 10px;
+    top: 5px;
+}
+
+/* Preview area */
+.content-preview-area {
+    position: relative;
+    display: grid;
+    grid-template-rows: 1fr 3rem;
+    gap: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    overflow: auto;
+}
+
+.content-preview-area .content-preview-cards {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: start;
+    gap: 1rem;
+    overflow: auto;
+    padding: 1rem;
+    border: 2px solid var(--pr-light-gray);
+    border-radius: .2rem;
+}
+
+.preview-slide {
+    display: grid;
+    place-content: center;
+    width: 21rem;
+    height: 12rem;
+    overflow: hidden;
+    background-color: var(--pr-gray);
+    font-family: var(--pr-font-family-slide);
+    color: var(--pr-white);
+    white-space: pre-line;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    text-align: center;
+    padding: 1rem 1.5rem;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+.content-preview-area .msg-empty-slide {
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 45%;
+    text-align: center;
+    margin: 0 auto;
+    color: var(--pr-light-gray);
+}
+
+.content-preview-area .msg-hide {
+    display: none;
+}
+
+.content-preview-area .content-preview-buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.content-preview-buttons select,
+.content-preview-buttons button,
+.modal-content button {
+    height: 100%;
+    min-width: 8rem;
+    padding: 0px 1rem;
+    outline: none;
+    border: none;
+    border-radius: .2rem;
+    background-color: var(--pr-red);
+    color: var(--pr-white);
+    font-family: var(--pr-font-family);
+    cursor: pointer;
+    text-transform: capitalize;
+    font-weight: lighter;
+    font-size: .9rem;
+    position: relative;
+    z-index: 10;
+}
+
+.content-preview-buttons button svg {
+    margin-left: .5rem;
+    height: .5rem;
+}
+
+/* Clipboard button */
+.btn-clipboard {
+    position: absolute;
+    top: 1rem;
+    left: 19rem;
+    z-index: 10;
+    font-size: 1.4rem;
+    color: var(--pr-dark-gray);
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.btn-clipboard:hover {
+    color: var(--pr-light-gray);
+}
+
+/* Select list transitions */
+.pr-list-container {
+    height: 15.2rem;
+    position: absolute;
+    bottom: 3rem;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.pr-list-container .pr-list {
+    border: 1px solid var(--pr-red);
+    border-radius: .2rem;
+    transform: translateY(20rem);
+    list-style: none;
+    transition: all .2s ease-in-out;
+}
+
+.pr-list-container .list-active {
+    transform: translateY(0rem);
+}
+
+.pr-list li {
+    width: 7.5rem;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--pr-white);
+    padding: .6rem 1rem;
+    cursor: pointer;
+    font-weight: lighter;
+    font-size: .9rem;
+    transition: all .1s ease-in-out;
+}
+
+.pr-list li:hover {
+    background-color: var(--pr-red);
+    color: var(--pr-white);
+}
+
+.pr-btn:active {
+    background-color: var(--pr-red);
+}
+
+/* Modal About */
+.modal-content .pr-btn {
+    height: 2.5rem;
+    margin-top: 1rem;
+}
+
+.modal-hide {
+    display: none;
+}
+
+.modal-overlay {
+    position: absolute;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #11111175;
+}
+
+.modal-avatar img {
+    max-width: 7rem;
+    border-radius: 5rem;
+    margin-bottom: .7rem;
+}
+
+.modal-content {
+    width: 30rem;
+    min-height: 15rem;
+    position: relative;
+    top: 7rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    border: 1px solid var(--pr-pink);
+    background-color: var(--pr-white);
+    color: var(--pr-dark);
+    box-shadow: 0rem 1rem 1rem var(--pr-black);
+    border-radius: 1rem;
+    padding: 1.5rem 2rem;
+    box-sizing: border-box;
+}
+
+.modal-content h3,
+.modal-content p {
+    margin-bottom: .7rem;
+}
+
+.modal-content p a {
+    text-decoration: none;
+    display: block;
+    color: var(--pr-pink);
+}
+
+.modal-content a:hover {
+    color: var(--pr-dark-gray);
+}
+
+.modal-content svg {
+    position: relative;
+    top: 10px;
+}

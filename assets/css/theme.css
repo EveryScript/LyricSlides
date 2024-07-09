@@ -1,0 +1,35 @@
+main .dark-mode {
+    background-color: var(--pr-dark);
+}
+
+main .dark-mode textarea {
+    background-color: var(--pr-black);
+    border: 2px solid var(--pr-dark-gray);
+    color: var(--pr-white);
+}
+
+main .dark-mode .content-form-area .backgrounds-area {
+    border: 2px solid var(--pr-dark-gray);
+}
+
+main .dark-mode .background-radio label {
+    border: 3px solid var(--pr-dark-gray);
+}
+
+main .dark-mode .content-preview-area .content-preview-cards {
+    border: 2px solid var(--pr-dark-gray);
+}
+
+main .dark-mode .pr-list li {
+    background-color: var(--pr-black);
+    color: var(--pr-white);
+}
+
+main .dark-mode .pr-list li:hover {
+    background-color: var(--pr-red);
+}
+
+main .dark-mode .modal-overlay .modal-content {
+    background-color: var(--pr-dark);
+    color: var(--pr-white);
+}

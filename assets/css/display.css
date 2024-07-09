@@ -1,0 +1,27 @@
+/* Custom styles to presentation Reveal.js */
+.overlay-controls {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 100;
+    transition: opacity .5s ease-out;
+}
+
+.overlay-hidden {
+    opacity: 0;
+}
+
+.overlay-controls button {
+    padding: .5rem .7rem .3rem .7rem;
+    outline: none;
+    border: none;
+    border-radius: .3rem;
+    background-color: #A0153E;
+    color: white;
+    cursor: pointer;
+    font-size: .9rem;
+}
+
+.overlay-controls button:active {
+    background-color: #6f0e2b;
+}
